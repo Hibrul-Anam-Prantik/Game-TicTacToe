@@ -1,20 +1,16 @@
-package TicTacToe;
+
 
 import java.util.Scanner;
 
-public class Play_TicTacToe_v10 {
+public class Play_TicTacToe_v11 {
     public static void main(String[] args) 
     {
         System.out.println("*****WELCOME!!!!!*****");
         System.out.println("");
-        // TicTacToe_v10 ttt = new TicTacToe_v10();
-        // TicTacToe_v11 ttt = new TicTacToe_v11();
-        // TicTacToe_v20 ttt = new TicTacToe_v20();
-        TicTacToe_v21 ttt = new TicTacToe_v21();
-        // TicTacToe_v30 ttt = new TicTacToe_v30();
+        TicTacToe_v30 ttt = new TicTacToe_v30();
         System.out.println("ONLY TWO PLAYERS CAN PLAY AT A TIME.");
-        // System.out.println("");
-        System.out.println("Let's begin.\n");
+        System.out.println("");
+        System.out.println("Let's Begin!\n");
         Scanner sc = new Scanner(System.in);
         System.out.print("Name(Player-1): ");
         String p1 = sc.nextLine();
@@ -24,9 +20,7 @@ public class Play_TicTacToe_v10 {
         System.out.println("");
         ArrayMaker am = new ArrayMaker();
         String[][] arr = am.gameMatrix();
-        ArrayPrinter ap = new ArrayPrinter();
         arr = ttt.game(arr);
-        ap.printGame(arr);
         sc.close();
     }
 }

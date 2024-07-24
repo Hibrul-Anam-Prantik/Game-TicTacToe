@@ -2,7 +2,7 @@ package TicTacToe;
 
 import java.util.Scanner;
 
-public class TicTacToe_v3_2 {
+public class TicTacToe_v30 {
     public String player1 = "O";
     public String player2 = "X";
     public String nameP1;
@@ -20,15 +20,12 @@ public class TicTacToe_v3_2 {
     {
         this.arr = arr;
         Scanner sc = new Scanner(System.in);
-        System.out.println("USE MATRIX INDEXING [ie. (m,n)]\n");
+        System.out.println("Enter the \"Row\" & \"Column\" number following the matrix rules:");
         term = 1;
         while (term <= 9) 
         {
-            // int row = sc.nextInt() - 1;
-            // int col = sc.nextInt() - 1;
-            int num = sc.nextInt();
-            int row = (num / 10) - 1;
-            int col = (num % 10) - 1;
+            int row = sc.nextInt() - 1;
+            int col = sc.nextInt() - 1;
             if (term % 2 == 0) {
                 System.out.println("         - " + nameP2);
                 this.arr[row][col] = player2;

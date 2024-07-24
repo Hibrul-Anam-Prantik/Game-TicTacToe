@@ -7,7 +7,7 @@ public class Play_TicTacToe_v11 {
     {
         System.out.println("*****WELCOME!!!!!*****");
         System.out.println("");
-        TicTacToe_v3 ttt = new TicTacToe_v3();
+        TicTacToe_v30 ttt = new TicTacToe_v30();
         System.out.println("ONLY TWO PLAYERS CAN PLAY AT A TIME.");
         System.out.println("");
         System.out.println("Let's Begin!\n");

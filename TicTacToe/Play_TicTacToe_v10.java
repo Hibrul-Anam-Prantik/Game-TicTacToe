@@ -2,15 +2,15 @@ package TicTacToe;
 
 import java.util.Scanner;
 
-public class Play_TicTacToe {
+public class Play_TicTacToe_v10 {
     public static void main(String[] args) 
     {
         System.out.println("*****WELCOME!!!!!*****");
         System.out.println("");
-        // TicTacToe ttt = new TicTacToe();
-        // TicTacToe_1_1 ttt = new TicTacToe();
-        // TicTacToe_2 ttt = new TicTacToe_2();
-        // TicTacToe_2_1 ttt = new TicTacToe_2_1();
+        // TicTacToe_v10 ttt = new TicTacToe();
+        // TicTacToe_v11 ttt = new TicTacToe();
+        // TicTacToe_v20 ttt = new TicTacToe_2();
+        // TicTacToe_v21 ttt = new TicTacToe_2_1();
         TicTacToe_v3 ttt = new TicTacToe_v3();
         System.out.println("ONLY TWO PLAYERS CAN PLAY AT A TIME.");
         // System.out.println("");

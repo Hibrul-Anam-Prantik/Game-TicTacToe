@@ -2,7 +2,7 @@ package TicTacToe;
 
 import java.util.Scanner;
 
-public class TicTacToe_1_1 
+public class TicTacToe_v11 
 {
     public int player1 = 1;
     public int player2 = 2;

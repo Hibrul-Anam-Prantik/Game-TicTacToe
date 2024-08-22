@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class TicTacToe_v321 
+public class TicTacToe_v4 
 {
-    public String player1 = "O";
+   public String player1 = "O";
     public String player2 = "X";
     public String nameP1;
     public String nameP2;
@@ -22,8 +22,6 @@ public class TicTacToe_v321
         term = 1;
         while (term <= 9) 
         {
-            // int row = sc.nextInt() - 1;
-            // int col = sc.nextInt() - 1;
             int num = sc.nextInt();
             int row = (num / 10) - 1;
             int col = (num % 10) - 1;

@@ -21,7 +21,6 @@ public class TicTacToe_v321
     {
         this.arr = arr;
         Scanner sc = new Scanner(System.in);
-        // System.out.println("USE MATRIX INDEXING [ie. (m,n)]\n");
         term = 1;
         while (term <= 9) 
         {

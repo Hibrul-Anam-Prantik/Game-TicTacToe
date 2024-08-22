@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TicTacToe_v4 
+public class TicTacToe_v40 
 {
    public String player1 = "O";
     public String player2 = "X";

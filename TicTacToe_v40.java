@@ -9,7 +9,7 @@ public class TicTacToe_v40
     String[][] arr;
     boolean over = false;
     int term;
-    int num;
+    int numRound;
     ArrayPrinter ap = new ArrayPrinter();
     public void setPlayer(String p1, String p2) 
     {
@@ -19,33 +19,43 @@ public class TicTacToe_v40
     public String[][] game(String[][] arr) 
     {
         this.arr = arr;
+        ArrayMaker am = new ArrayMaker();
+        int i = 0;
         Scanner sc = new Scanner(System.in);
-        term = 1;
-        while (term <= 9) 
+        while (i < numRound) 
         {
-            int num = sc.nextInt();
-            int row = (num / 10) - 1;
-            int col = (num % 10) - 1;
-            if (term % 2 == 0) {
-                System.out.println("         - " + nameP2);
-                this.arr[row][col] = player2;
-                ap.printGame(this.arr);
-                System.out.println();
-            } else {
-                System.out.println("         - " + nameP1);
-                this.arr[row][col] = player1;
-                ap.printGame(this.arr);
-                System.out.println();
+            over = false;
+            String[][] arr1 = am.gameMatrix();
+            this.arr = arr1;
+            System.out.println();
+            System.out.println("<<<< ROUND-" +(i + 1) + " >>>>");
+            term = 1;
+            while (term <= 9) 
+            {
+                int num = sc.nextInt();
+                int row = (num / 10) - 1;
+                int col = (num % 10) - 1;
+                if (term % 2 == 0) {
+                    System.out.println("         - " + nameP2);
+                    this.arr[row][col] = player2;
+                    ap.printGame(this.arr);
+                    System.out.println();
+                } else {
+                    System.out.println("         - " + nameP1);
+                    this.arr[row][col] = player1;
+                    ap.printGame(this.arr);
+                    System.out.println();
+                }
+                if (term >= 4) {
+                    check(this.arr);
+                }
+                if (over) {
+                    break;
+                }
+                term++;
             }
-            if (term >= 4) {
-                check(this.arr);
-            }
-            if (over) {
-                break;
-            }
-            term++;
+            i ++;
         }
-
         sc.close();
         return this.arr;
     }
@@ -73,7 +83,7 @@ public class TicTacToe_v40
             System.out.println("***** CONGRATULATIONS *****\n    ***** " + nameP2 + " *****");
             over = true;
         } else if (term == 9 && !over) {
-            System.out.println("\nBETTER LUCK NEXT TIME!\n:(");
+            System.out.println("\nDRAW :)");
         }
     }
 
@@ -88,17 +98,22 @@ public class TicTacToe_v40
             int optRound = sc.nextInt();
             System.out.println();
             if (optRound == 1) {
-                num = 3;
+                numRound = 3;
             } else if(optRound == 2) {
-                num = 5;
+                numRound = 5;
             } else if (optRound == 3) {
                 System.out.print("Round => ");
-                num = sc.nextInt();
+                numRound = sc.nextInt();
             } else {
                 System.out.println("PLEASE ENTER A VALID OPTION.");
                 mode();
             }
+        } else if (optMode == 1) {
+            numRound = 1;
+        } else {
+            System.out.println("PLEASE SELECT A VALID OPTION.");
+            mode();
         }
-        sc.close();
+        // sc.close();
     }
 }

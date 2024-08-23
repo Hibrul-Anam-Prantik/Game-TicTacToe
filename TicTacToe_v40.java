@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class TicTacToe_v40 
 {
-   public String player1 = "O";
+    public String player1 = "O";
     public String player2 = "X";
     public String nameP1;
     public String nameP2;
@@ -11,6 +11,7 @@ public class TicTacToe_v40
     int term;
     int numRound;
     ArrayPrinter ap = new ArrayPrinter();
+    Scanner sc = new Scanner (System.in);
     public void setPlayer(String p1, String p2) 
     {
         nameP1 = p1;
@@ -56,7 +57,7 @@ public class TicTacToe_v40
             }
             i ++;
         }
-        sc.close();
+        // sc.close();
         return this.arr;
     }
 

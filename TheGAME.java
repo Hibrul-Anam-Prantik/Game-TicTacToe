@@ -42,6 +42,7 @@ class TicTacToe_v40
     int term;
     int numRound;
     ArrayPrinter ap = new ArrayPrinter();
+    Scanner sc = new Scanner(System.in);
     void setPlayer(String p1, String p2) 
     {
         nameP1 = p1;
@@ -52,7 +53,7 @@ class TicTacToe_v40
         this.arr = arr;
         ArrayMaker am = new ArrayMaker();
         int i = 0;
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
         while (i < numRound) 
         {
             over = false;
@@ -87,7 +88,7 @@ class TicTacToe_v40
             }
             i ++;
         }
-        sc.close();
+        // sc.close();
         return this.arr;
     }
     void check(String[][] arr) 

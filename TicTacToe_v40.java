@@ -9,6 +9,7 @@ public class TicTacToe_v40
     String[][] arr;
     boolean over = false;
     int term;
+    int num;
     ArrayPrinter ap = new ArrayPrinter();
     public void setPlayer(String p1, String p2) 
     {
@@ -74,5 +75,30 @@ public class TicTacToe_v40
         } else if (term == 9 && !over) {
             System.out.println("\nBETTER LUCK NEXT TIME!\n:(");
         }
+    }
+
+    public void mode () 
+    {
+        System.out.print("Game Mode?\n   1. QUICK GAME\n   2. TOURNAMENT\n   [Enter 1 or 2]\n => ");
+        Scanner sc = new Scanner(System.in);
+        int optMode = sc.nextInt();
+        System.out.println();
+        if (optMode == 2) {
+            System.out.print("Number of games(ie-3, 5 or Customize):\n   1. 3 Rounds, \n   2. 5 Rounds, \n   3. Customize \n => ");
+            int optRound = sc.nextInt();
+            System.out.println();
+            if (optRound == 1) {
+                num = 3;
+            } else if(optRound == 2) {
+                num = 5;
+            } else if (optRound == 3) {
+                System.out.print("Round => ");
+                num = sc.nextInt();
+            } else {
+                System.out.println("PLEASE ENTER A VALID OPTION.");
+                mode();
+            }
+        }
+        sc.close();
     }
 }

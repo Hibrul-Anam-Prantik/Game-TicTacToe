@@ -33,7 +33,7 @@ public class TheGAME
 
 class TicTacToe_v40 
 {
-   public String player1 = "O";
+    public String player1 = "O";
     public String player2 = "X";
     public String nameP1;
     public String nameP2;
@@ -42,12 +42,12 @@ class TicTacToe_v40
     int term;
     int numRound;
     ArrayPrinter ap = new ArrayPrinter();
-    public void setPlayer(String p1, String p2) 
+    void setPlayer(String p1, String p2) 
     {
         nameP1 = p1;
         nameP2 = p2;
     }
-    public String[][] game(String[][] arr) 
+    String[][] game(String[][] arr) 
     {
         this.arr = arr;
         ArrayMaker am = new ArrayMaker();
@@ -90,8 +90,7 @@ class TicTacToe_v40
         sc.close();
         return this.arr;
     }
-
-    public void check(String[][] arr) 
+    void check(String[][] arr) 
     {
         if ((arr[0][0] == player1 && arr[0][1] == player1 && arr[0][2] == player1)
                 || (arr[1][0] == player1 && arr[1][1] == player1 && arr[1][2] == player1)
@@ -118,7 +117,7 @@ class TicTacToe_v40
         }
     }
 
-    public void mode () 
+    void mode () 
     {
         System.out.print("Game Mode?\n   1. QUICK GAME\n   2. TOURNAMENT\n   [Enter 1 or 2]\n => ");
         Scanner sc = new Scanner(System.in);
@@ -145,7 +144,120 @@ class TicTacToe_v40
             System.out.println("PLEASE SELECT A VALID OPTION.");
             mode();
         }
-        // sc.close();
     }
 }
+
+class ArrayMaker {
+    public int[] arr1D;
+    public int len;
+    public int[][] arr2D;
+    public int len1, len2;
+    public String[][] game;
+    void makeArr1D() 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Length of the Array: ");
+        len = sc.nextInt();
+        arr1D = new int[len];
+        for(int i = 0; i <len; i++)
+        {
+            System.out.print("  Element-" + (i+1) + ": "); 
+            arr1D[i] = sc.nextInt();
+        }
+        System.out.println("Successfully built a 1-D Array!!");
+        sc.close();
+    }
+
+    void makeArr2D() 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Row of the Array: ");
+        len1 = sc.nextInt();
+        System.out.print("Column of the Array: ");
+        len2 = sc.nextInt();
+        arr2D = new int[len1][len2];
+        for(int i = 0; i < len1; i++)
+        {
+            System.out.println("Elements of Row-" + (i+1) + ": "); 
+            for(int j = 0; j < len2; j++)
+            {
+                System.out.print("  Element-" + (j+1) + ": ");
+                arr2D[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("Successfully built a 2-D Array!!");
+        sc.close();
+    }
+    String[][] gameMatrix() 
+    {
+        game = new String[3][3];
+        for (int i = 0; i < 3; i++) 
+        {
+            for (int j = 0; j < 3; j++) 
+            {
+                game[i][j] = " ";
+            }
+        }
+        return game;
+    }
+}
+
+class ArrayPrinter {
+    public int[] arr1D;
+    public int len1;
+    public int len2, len3;
+    public int arr2D[][];
+    public String[][] arr2Ds;
+    void print1D(int[] arr)
+    {
+        arr1D = arr;
+        len1 = arr1D.length;
+        System.out.println("1-D Array:");
+        for ( int i = 0; i < len1; i++)
+        {
+            System.out.print("  " + arr1D[i]);
+        }
+        System.out.println();
+    }
+
+    void print2D(int[][] arr) 
+    {
+        arr2D = arr;
+        len2 = arr2D.length;
+        len3 = arr2D[0].length;
+        System.out.println(" 2-D Array:");
+        for ( int i = 0; i < len2; i++)
+        {
+            for(int j = 0; j < len3; j++)
+            {
+                if(arr2D[i][j] > 9){
+                    System.out.print("  " + arr2D[i][j]);
+                } else {
+                    System.out.print("   " + arr2D[i][j]);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    void printGame(String[][] arr) 
+    {
+        arr2Ds = arr;
+        len2 = arr2Ds.length;
+        len3 = arr2Ds[0].length;
+        System.out.println("GOOD GAME");
+        for ( int i = 0; i < len2; i++)
+        {
+            for(int j = 0; j < len3; j++)
+            {
+                if (j == 0) {
+                    System.out.print("  |");
+                }
+                System.out.print(arr2Ds[i][j] + "|");
+            }
+            System.out.println();
+        }
+    }
+}
+
 

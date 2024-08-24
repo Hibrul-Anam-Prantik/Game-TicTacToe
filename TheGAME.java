@@ -53,7 +53,6 @@ class TicTacToe_v40
         this.arr = arr;
         ArrayMaker am = new ArrayMaker();
         int i = 0;
-        // Scanner sc = new Scanner(System.in);
         while (i < numRound) 
         {
             over = false;
@@ -88,7 +87,6 @@ class TicTacToe_v40
             }
             i ++;
         }
-        // sc.close();
         return this.arr;
     }
     void check(String[][] arr) 
@@ -121,7 +119,6 @@ class TicTacToe_v40
     void mode () 
     {
         System.out.print("Game Mode?\n   1. QUICK GAME\n   2. TOURNAMENT\n   [Enter 1 or 2]\n => ");
-        Scanner sc = new Scanner(System.in);
         int optMode = sc.nextInt();
         System.out.println();
         if (optMode == 2) {

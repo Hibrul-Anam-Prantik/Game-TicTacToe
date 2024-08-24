@@ -22,7 +22,6 @@ public class TicTacToe_v40
         this.arr = arr;
         ArrayMaker am = new ArrayMaker();
         int i = 0;
-        Scanner sc = new Scanner(System.in);
         while (i < numRound) 
         {
             over = false;
@@ -57,7 +56,6 @@ public class TicTacToe_v40
             }
             i ++;
         }
-        // sc.close();
         return this.arr;
     }
 
@@ -115,6 +113,5 @@ public class TicTacToe_v40
             System.out.println("PLEASE SELECT A VALID OPTION.");
             mode();
         }
-        // sc.close();
     }
 }

@@ -4,16 +4,15 @@ public class TheGAME
 {
     public static void main(String[] args) 
     {
-        Scanner sc = new Scanner(System.in);
         System.out.println("***** WELCOME!!!!! *****");
         System.out.println("        __|_|__ \n        __|_|__ \n          | |  ");
         System.out.println();
-        System.out.println("ONLY TWO PLAYERS CAN PLAY AT A TIME.");
+        System.out.println("\"Only two players can play at a time\"");
         System.out.println();
-        TicTacToe_v40 ttt = new TicTacToe_v40();
+        TicTacToe_v41 ttt = new TicTacToe_v41();
         ttt.mode();
-        System.out.println();
         System.out.println("Set Names-");
+        Scanner sc = new Scanner(System.in);
         System.out.print("Name(Player-1): ");
         String p1 = sc.nextLine();
         System.out.print("Name(Player-2): ");
@@ -22,8 +21,6 @@ public class TheGAME
         System.out.println();
         System.out.println("Use the numbers shown below, to acess each slot-\n   |11|12|13|\n   |21|22|23|\n   |31|32|33|");
         System.out.println();
-        System.out.println("LET'S ROCK!\n");
-        System.out.println("  |_|_|_|\n  |_|_|_|\n  | | | |");
         ArrayMaker am = new ArrayMaker();
         String[][] arr = am.gameMatrix();
         arr = ttt.game(arr);
@@ -31,25 +28,32 @@ public class TheGAME
     }
 }
 
-class TicTacToe_v40 
+class TicTacToe_v41 
 {
-    public String player1 = "O";
-    public String player2 = "X";
-    public String nameP1;
-    public String nameP2;
+    String player1 = "O";
+    String player2 = "X";
+    String nameP1;
+    String nameP2;
     String[][] arr;
-    boolean over = false;
+    boolean over;
     int term;
     int numRound;
     ArrayPrinter ap = new ArrayPrinter();
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner (System.in);
+    int winTour1 = 0;
+    int winTour2 = 0;
+    boolean tournament = false;
     void setPlayer(String p1, String p2) 
     {
         nameP1 = p1;
         nameP2 = p2;
     }
+
     String[][] game(String[][] arr) 
     {
+        System.out.println("LET'S ROCK!\n");
+        System.out.println("  |_|_|_|\n  |_|_|_|\n  | | | |");
+        System.out.println();
         this.arr = arr;
         ArrayMaker am = new ArrayMaker();
         int i = 0;
@@ -58,8 +62,10 @@ class TicTacToe_v40
             over = false;
             String[][] arr1 = am.gameMatrix();
             this.arr = arr1;
-            System.out.println();
-            System.out.println("<<<< ROUND-" +(i + 1) + " >>>>");
+            // System.out.println();
+            if (numRound > 1) {
+                System.out.println("<<<< ROUND-" +(i + 1) + " >>>>");
+            }
             term = 1;
             while (term <= 9) 
             {
@@ -87,8 +93,25 @@ class TicTacToe_v40
             }
             i ++;
         }
+        if (tournament) {
+            tournamentResult(arr);
+        } else {
+            System.out.println("\nPlay Again?\n   1. Yes\n   2. No.");
+            System.out.print(" => ");
+            int x = sc.nextInt();
+            System.out.println();
+            if (x == 1) {
+                mode();
+                // System.out.println("LET'S ROCK AGAIN!");
+                this.arr = game(arr);
+            } else {
+                System.out.println(">>>> HAPPY GAMING <<<<");
+                System.out.println("          :)");
+            }
+        }
         return this.arr;
     }
+
     void check(String[][] arr) 
     {
         if ((arr[0][0] == player1 && arr[0][1] == player1 && arr[0][2] == player1)
@@ -98,9 +121,15 @@ class TicTacToe_v40
                 || (arr[0][1] == player1 && arr[1][1] == player1 && arr[2][1] == player1)
                 || (arr[0][2] == player1 && arr[1][2] == player1 && arr[2][2] == player1)
                 || (arr[0][0] == player1 && arr[1][1] == player1 && arr[2][2] == player1)
-                || (arr[0][2] == player1 && arr[1][1] == player1 && arr[2][0] == player1)) {
-            System.out.println("***** CONGRATULATIONS *****\n    ***** " + nameP1 + " *****");
+                || (arr[0][2] == player1 && arr[1][1] == player1 && arr[2][0] == player1)) 
+        {
             over = true;
+            if (numRound > 1) {
+                System.out.println("       >>>>>> " + nameP1 + " WON \n");
+                winTour1 ++;
+            } else {
+                System.out.println("<<<<< " + nameP1 + " WON >>>>>");
+            }
         } else if ((arr[0][0] == player2 && arr[0][1] == player2 && arr[0][2] == player2)
                 || (arr[1][0] == player2 && arr[1][1] == player2 && arr[1][2] == player2)
                 || (arr[2][0] == player2 && arr[2][1] == player2 && arr[2][2] == player2)
@@ -108,21 +137,31 @@ class TicTacToe_v40
                 || (arr[0][1] == player2 && arr[1][1] == player2 && arr[2][1] == player2)
                 || (arr[0][2] == player2 && arr[1][2] == player2 && arr[2][2] == player2)
                 || (arr[0][0] == player2 && arr[1][1] == player2 && arr[2][2] == player2)
-                || (arr[0][2] == player2 && arr[1][1] == player2 && arr[2][0] == player2)) {
-            System.out.println("***** CONGRATULATIONS *****\n    ***** " + nameP2 + " *****");
+                || (arr[0][2] == player2 && arr[1][1] == player2 && arr[2][0] == player2)) 
+        {
             over = true;
+            if (numRound > 1) {
+                System.out.println("       >>>>>> " + nameP2 + " WON\n");
+                winTour2 ++;
+            } else {
+                System.out.println("<<<<< " + nameP2 + " WON >>>>>");
+            }
         } else if (term == 9 && !over) {
-            System.out.println("\nDRAW :)");
+            if (numRound > 1) {
+                System.out.println("\n       >>>>>> NOBODY WON\n");
+            } else {
+                System.out.println("\n* NOBODY WON *");
+            }
         }
     }
 
     void mode () 
     {
-        System.out.print("Game Mode?\n   1. QUICK GAME\n   2. TOURNAMENT\n   [Enter 1 or 2]\n => ");
+        System.out.print("Game Mode?\n   1. Quick Game\n   2. Tournament\n   [Enter 1 or 2]\n => ");
         int optMode = sc.nextInt();
         System.out.println();
         if (optMode == 2) {
-            System.out.print("Number of games(ie-3, 5 or Customize):\n   1. 3 Rounds, \n   2. 5 Rounds, \n   3. Customize \n => ");
+            System.out.print("Number of Games:\n   1. 3 Games \n   2. 5 Games \n   3. Customize \n => ");
             int optRound = sc.nextInt();
             System.out.println();
             if (optRound == 1) {
@@ -132,16 +171,65 @@ class TicTacToe_v40
             } else if (optRound == 3) {
                 System.out.print("Round => ");
                 numRound = sc.nextInt();
+                System.out.println();
             } else {
-                System.out.println("PLEASE ENTER A VALID OPTION.");
+                System.out.println("* Please enter a valid option! *");
+                System.out.println();
                 mode();
             }
+            tournament = true;
         } else if (optMode == 1) {
             numRound = 1;
         } else {
-            System.out.println("PLEASE SELECT A VALID OPTION.");
+            System.out.println("* Please select a valid option! *");
+            System.out.println();
             mode();
         }
+    }
+
+    String[][] tournamentResult(String[][] arr) 
+    {
+        if (winTour1 > winTour2) {
+            System.out.println("***** CONGRATULATIONS *****\n >>>>> \"" + nameP1 + "\" WON THE TOURNAMENT <<<<< ");
+            System.out.println("\nPlay Again?\n   1. Yes\n   2. No.");
+            System.out.print(" => ");
+            int x = sc.nextInt();
+            System.out.println();
+            if (x == 1) {
+                mode();
+                this.arr = game(arr);
+            } else {
+                System.out.println(">>>> HAPPY GAMING <<<<");
+                System.out.println("          :)");
+            }
+        } else if (winTour2 > winTour1) {
+            System.out.println("***** CONGRATULATIONS *****\n >>>>> \"" + nameP2 + "\" WON THE TOURNAMENT <<<<< ");
+            System.out.println("\nPlay Again?\n   1. Yes\n   2. No.");
+            System.out.print(" => ");
+            int x = sc.nextInt();
+            System.out.println();
+            if (x == 1) {
+                mode();
+                this.arr = game(arr);
+            } else {
+                System.out.println(">>>> HAPPY GAMING <<<<");
+                System.out.println("          :)");
+            }
+        } else {
+            System.out.println("***** DRAW *****\n >>>>> Both \"" + nameP1 + "\" & \"" + nameP2 + "\" WON THE TOURNAMENT <<<<< ");
+            System.out.println("\nPlay Again?\n   1. Yes\n   2. No.");
+            System.out.print(" => ");
+            int x = sc.nextInt();
+            System.out.println();
+            if (x == 1) {
+                mode();
+                this.arr = game(arr);
+            } else {
+                System.out.println(">>>> HAPPY GAMING <<<<");
+                System.out.println("          :)");
+            }
+        }
+        return this.arr;
     }
 }
 

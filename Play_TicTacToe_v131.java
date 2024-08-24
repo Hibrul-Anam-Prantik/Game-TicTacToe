@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 
 public class Play_TicTacToe_v131 
@@ -16,7 +14,7 @@ public class Play_TicTacToe_v131
         Scanner sc = new Scanner(System.in);
         System.out.print("Name(Player-1): ");
         String p1 = sc.nextLine();
-        System.out.print("Name(Player-1): ");
+        System.out.print("Name(Player-2): ");
         String p2 = sc.nextLine();
         ttt.setPlayer(p1, p2);
         System.out.println();

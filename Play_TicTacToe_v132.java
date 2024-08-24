@@ -7,7 +7,7 @@ public class Play_TicTacToe_v132
         System.out.println("***** WELCOME!!!!! *****");
         System.out.println("        __|_|__ \n        __|_|__ \n          | |  ");
         System.out.println();
-        System.out.println("ONLY TWO PLAYERS CAN PLAY AT A TIME.");
+        System.out.println("\"Only two players can play at a time\"");
         System.out.println();
         TicTacToe_v40 ttt = new TicTacToe_v40();
         ttt.mode();
@@ -24,6 +24,7 @@ public class Play_TicTacToe_v132
         System.out.println();
         System.out.println("LET'S ROCK!\n");
         System.out.println("  |_|_|_|\n  |_|_|_|\n  | | | |");
+        System.out.println();
         ArrayMaker am = new ArrayMaker();
         String[][] arr = am.gameMatrix();
         arr = ttt.game(arr);

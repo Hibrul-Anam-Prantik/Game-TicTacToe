@@ -1,4 +1,12 @@
 # 🎮 Game-TicTacToe
+![Java](https://img.shields.io/badge/Java-007396?logo=java&logoColor=white)
+![Beginner](https://img.shields.io/badge/Beginner-28a745)
+![Project](https://img.shields.io/badge/Project-blue)
+![OOP](https://img.shields.io/badge/OOP-orange)
+![2D Arrays](https://img.shields.io/badge/2D%20Arrays-purple)
+![Tic Tac Toe](https://img.shields.io/badge/Tic%20Tac%20Toe-yellow)
+![Console Game](https://img.shields.io/badge/Console%20Game-ff69b4)
+
 
 A simple console-based **Tic Tac Toe** game built in Java using **OOP** and **2D arrays**.  
 This was my **first ever coding project**, created while learning about Object-Oriented Programming and arrays.
